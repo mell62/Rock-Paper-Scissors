@@ -13,8 +13,15 @@
 // increase the value of computer's score or player's score depending on what the round function returns inside the loop
 // use if condition to determine the winner of the game depending on whose score variable has higher value
 function getComputerChoice(){
-    let randomNumber=Math.random();
+    let randomNumber = Math.random();
     let computerChoice;
-    (randomNumber<0.34) ? computerChoice="Rock" : (randomNumber<0.67) ? computerChoice="Paper" : computerChoice="Scissors";
+    (randomNumber<0.34) ? computerChoice="rock" : (randomNumber<0.67) ? computerChoice="paper" : computerChoice="scissors";
     return computerChoice;
 }
+
+function getPlayerChoice(){
+    let playerChoice = prompt("What will you play?", "");
+    playerChoice = playerChoice.toLowerCase();
+    return playerChoice;
+}
+
