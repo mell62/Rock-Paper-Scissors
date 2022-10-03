@@ -16,4 +16,5 @@ function getComputerChoice(){
     let randomNumber=Math.random();
     let computerChoice;
     (randomNumber<0.34) ? computerChoice="Rock" : (randomNumber<0.67) ? computerChoice="Paper" : computerChoice="Scissors";
+    return computerChoice;
 }
