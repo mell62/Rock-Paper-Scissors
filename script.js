@@ -71,12 +71,13 @@ function game(){
     let playerScore = 0;
     let result;
     for (i=0;i<5;i++){
+        console.log("Round number:", i+1);
         result = playRound(getComputerChoice,getPlayerChoice);
         console.log(result);
         if (result === "You win! Paper beats rock" || result === "You win! Scissors beats paper" || result === "You win! Rock beats scissors"){
             playerScore += 1;
             console.log("Your score is", playerScore);
-            console.log("computer score is", computerScore);
+            console.log("Computer score is", computerScore);
         }
         else if (result === "You lose! Rock beats scissors" || result === "You lose! Paper beats rock" || result === "You lose! Scissors beats paper"){
             computerScore += 1;
@@ -88,5 +89,18 @@ function game(){
             console.log("Computer score is", computerScore);
         }
     }
+
+   if (playerScore > computerScore){
+    console.log("You win the game!");
+   } 
+
+   else if (computerScore > playerScore){
+    console.log("You lose the game! Better luck next time");
+   }
+
+   else{
+    console.log("The game is declared to be a draw.");
+   }
+
 }
 console.log(game());
