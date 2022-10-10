@@ -8,8 +8,8 @@
 // Create a function round() to run a single round of the game with computer's choice and player's choice as arguments
 // Use the if and else if conditions to determine the winner of the round
 // return the result of the function
-// Initialize computer's score and player's score as 0 in two new variables
 // Create a function game() to play a 5 round game
+// Initialize computer's score and player's score as 0 in two new variables
 // Use for loop to iterate the round() function 5 times
 // increase the value of computer's score or player's score depending on what the round function returns inside the loop
 // use if condition to determine the winner of the game depending on whose score variable has higher value
@@ -66,12 +66,12 @@ function playRound(computerChoice,playerChoice){
 }
 
 function game(){
-    let i;
+    let round;
     let computerScore = 0;
     let playerScore = 0;
     let result;
-    for (i=0;i<5;i++){
-        console.log("Round number:", i+1);
+    for (round=1;round<6;round++){
+        console.log("Round number:", round);
         result = playRound(getComputerChoice,getPlayerChoice);
         console.log(result);
         if (result === "You win! Paper beats rock" || result === "You win! Scissors beats paper" || result === "You win! Rock beats scissors"){
@@ -87,6 +87,9 @@ function game(){
         else if (result === "It's a tie!"){
             console.log("Your score is", playerScore);
             console.log("Computer score is", computerScore);
+        }
+        else if (result === "Enter a valid choice"){
+            round -= 1;
         }
     }
 
