@@ -1,3 +1,4 @@
+// Algorithm
 // Create a function getComputerChoice for computer's choice of the play
 // Use Math.random() function to randomize the selection of the choices Rock, Paper or Scissors
 // return the randomized choice
@@ -23,5 +24,50 @@ function getPlayerChoice(){
     let playerChoice = prompt("What will you play?", "");
     playerChoice = playerChoice.toLowerCase();
     return playerChoice;
+}
+
+let computerChoice = getComputerChoice();
+let playerChoice = getPlayerChoice();
+console.log(computerChoice);
+console.log(playerChoice);
+
+function playRound(){
+    let compChoice = computerChoice;
+    let playChoice = playerChoice;
+    
+    if (compChoice === playChoice){
+        return "It's a tie!";
+    }
+   
+    else if (playChoice !== "rock" && playChoice !== "paper" && playChoice !== "scissors"){
+        return "Enter a valid choice";
+    } 
+   
+    else if (compChoice === "rock"){
+        if (playChoice === "paper"){
+            return "You win! Paper beats rock";
+        } 
+        else {
+            return "You lose! Rock beats scissors";
+        }
+    }
+   
+    else if (compChoice === "paper"){
+        if (playChoice === "rock"){
+            return "You lose! Paper beats rock";
+        } 
+        else {
+            return "You win! Scissors beats paper";
+        }
+    }
+   
+    else if (compChoice === "scissors"){
+        if (playChoice === "rock"){
+            return "You win! Rock beats scissors";
+        } 
+        else {
+            return "You lose! Scissors beats paper"
+        }
+    }
 }
 
