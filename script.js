@@ -65,45 +65,4 @@ function playRound(computerChoice,playerChoice){
     }
 }
 
-function game(){
-    let round;
-    let computerScore = 0;
-    let playerScore = 0;
-    let result;
-    for (round=1;round<6;round++){
-        console.log("Round number:", round);
-        result = playRound(getComputerChoice,getPlayerChoice);
-        console.log(result);
-        if (result === "You win! Paper beats rock" || result === "You win! Scissors beats paper" || result === "You win! Rock beats scissors"){
-            playerScore += 1;
-            console.log("Your score is", playerScore);
-            console.log("Computer score is", computerScore);
-        }
-        else if (result === "You lose! Rock beats scissors" || result === "You lose! Paper beats rock" || result === "You lose! Scissors beats paper"){
-            computerScore += 1;
-            console.log("Your score is", playerScore);
-            console.log("Computer score is", computerScore);
-        }
-        else if (result === "It's a tie!"){
-            console.log("Your score is", playerScore);
-            console.log("Computer score is", computerScore);
-        }
-        else if (result === "Enter a valid choice"){
-            round -= 1;
-        }
-    }
-
-   if (playerScore > computerScore){
-    console.log("You win the game!");
-   } 
-
-   else if (computerScore > playerScore){
-    console.log("You lose the game! Better luck next time");
-   }
-
-   else{
-    console.log("The game is declared to be a draw.");
-   }
-
-}
-console.log(game());
+console.log(playRound(getComputerChoice,getPlayerChoice));
