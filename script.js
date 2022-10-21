@@ -58,18 +58,12 @@ function playRound(playChoice){
         }
     }
 }
-const rockButton = document.querySelector('.rock');
-rockButton.addEventListener("click", () => {
-    console.log(playRound("rock"))
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        console.log(playRound(button.textContent.toLowerCase()));
+})
 });
 
-const paperButton = document.querySelector('.paper');
-paperButton.addEventListener("click", () => {
-    console.log(playRound("paper"))
-});
-
-const scissorsButton = document.querySelector('.scissors');
-scissorsButton.addEventListener("click", () => {
-    console.log(playRound("scissors"))
-});
 
