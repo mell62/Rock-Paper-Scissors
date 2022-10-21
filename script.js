@@ -20,15 +20,9 @@ function getComputerChoice(){
     return computerChoice;
 }
 
-function getPlayerChoice(){
-    let playerChoice = prompt("What will you play?", "");
-    playerChoice = playerChoice.toLowerCase();
-    return playerChoice;
-}
 
-function playRound(computerChoice,playerChoice){
-    let compChoice = computerChoice();
-    let playChoice = playerChoice();
+function playRound(playChoice){
+    let compChoice = getComputerChoice();
     if (compChoice === playChoice){
         return "It's a tie!";
     }
@@ -64,5 +58,18 @@ function playRound(computerChoice,playerChoice){
         }
     }
 }
+const rockButton = document.querySelector('.rock');
+rockButton.addEventListener("click", () => {
+    console.log(playRound("rock"))
+});
 
-console.log(playRound(getComputerChoice,getPlayerChoice));
+const paperButton = document.querySelector('.paper');
+paperButton.addEventListener("click", () => {
+    console.log(playRound("paper"))
+});
+
+const scissorsButton = document.querySelector('.scissors');
+scissorsButton.addEventListener("click", () => {
+    console.log(playRound("scissors"))
+});
+
