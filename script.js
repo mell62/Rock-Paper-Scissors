@@ -59,11 +59,15 @@ function playRound(playChoice){
     }
 }
 
+const body = document.querySelector('.results');
 const buttons = document.querySelectorAll('button');
+const result = document.createElement('div');
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
-        console.log(playRound(button.textContent.toLowerCase()));
-})
+        result.textContent = `${playRound(button.textContent.toLowerCase())}`
+        body.appendChild(result);
+    })
 });
+
 
 
