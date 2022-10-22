@@ -88,6 +88,7 @@ function gameEnd(){
     }
 }
 
+const roundNumberInfo = document.querySelector('.round-number');
 const body = document.querySelector('.results');
 const buttons = document.querySelectorAll('button');
 const result = document.createElement('div');
@@ -97,7 +98,7 @@ const gameOverText = document.createElement('div');
 const computersPlay = document.createElement('div');
 
 round.textContent = `Round number : ${roundNumber} Let the game begin!`
-body.appendChild(round);
+roundNumberInfo.appendChild(round);
     buttons.forEach((button) => {
         button.addEventListener("click", () => {
 
