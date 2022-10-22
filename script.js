@@ -89,7 +89,7 @@ function gameEnd(){
 }
 
 const body = document.querySelector('body');
-const roundNumberInfo = document.createElement('div');
+const roundNumberInfo = document.querySelector('.roundnumber-info');
 const resultBody = document.querySelector('.results');
 const roundResult = document.createElement('div');
 const score = document.createElement('div');
@@ -99,29 +99,28 @@ const buttons = document.querySelectorAll('button');
 const buttonContainer = document.querySelector('.button-container');
 
 roundNumberInfo.textContent = `Round number : ${roundNumber} Let the game begin!`
-body.insertBefore(roundNumberInfo,buttonContainer);
-    buttons.forEach((button) => {
-        button.addEventListener("click", () => {
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
 
-            if (roundNumber >= 6){
-                roundNumberInfo.textContent = "Round number : 5";
-            }
-            else {
-                roundNumberInfo.textContent = `Round number : ${roundNumber}`;
-            }
+        if (roundNumber >= 6){
+             roundNumberInfo.textContent = "Round number : 5";
+         }
+         else {
+            roundNumberInfo.textContent = `Round number : ${roundNumber}`;
+        }
 
-            roundResult.textContent = `${playRound(button.textContent.toLowerCase())}`;
-            computersPlay.textContent = `The computer chooses ${computersPlayvariable}!`;
-            resultBody.appendChild(computersPlay);
-            resultBody.appendChild(roundResult);
+        roundResult.textContent = `${playRound(button.textContent.toLowerCase())}`;
+        computersPlay.textContent = `The computer chooses ${computersPlayvariable}!`;
+        resultBody.appendChild(computersPlay);
+        resultBody.appendChild(roundResult);
 
-            score.textContent = `Your Score: ${playerScore} Computer's Score: ${computerScore}`;
-            resultBody.appendChild(score);
+        score.textContent = `Your Score: ${playerScore} Computer's Score: ${computerScore}`;
+        resultBody.appendChild(score);
 
-            gameOverText.textContent = `${gameEnd()}`;
-            resultBody.appendChild(gameOverText);
-        });
+        gameOverText.textContent = `${gameEnd()}`;
+        resultBody.appendChild(gameOverText);
     });
+});
 
 
 
