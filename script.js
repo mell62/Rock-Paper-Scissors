@@ -1,18 +1,8 @@
-// Algorithm
-// Create a function getComputerChoice for computer's choice of the play
-// Use Math.random() function to randomize the selection of the choices Rock, Paper or Scissors
-// return the randomized choice
-// Create a function getPlayerChoice for the player's choice of the play
-// Use prompt() function to get the player's choice as a string
-// return the player's choice
-// Create a function round() to run a single round of the game with computer's choice and player's choice as arguments
-// Use the if and else if conditions to determine the winner of the round
-// return the result of the function
-// Create a function game() to play a 5 round game
-// Initialize computer's score and player's score as 0 in two new variables
-// Use for loop to iterate the round() function 5 times
-// increase the value of computer's score or player's score depending on what the round function returns inside the loop
-// use if condition to determine the winner of the game depending on whose score variable has higher value
+
+let playerScore = 0;
+let computerScore = 0;
+let roundNumber = 1;
+
 function getComputerChoice(){
     let randomNumber = Math.random();
     let computerChoice;
@@ -20,10 +10,20 @@ function getComputerChoice(){
     return computerChoice;
 }
 
+let computersPlayvariable;
 
 function playRound(playChoice){
+    
     let compChoice = getComputerChoice();
+
+    if (roundNumber > 5){
+        return `Game is over!`;
+    }
+
+    computersPlayvariable = compChoice;
+
     if (compChoice === playChoice){
+        roundNumber++;
         return "It's a tie!";
     }
    
@@ -33,41 +33,94 @@ function playRound(playChoice){
    
     else if (compChoice === "rock"){
         if (playChoice === "paper"){
+            playerScore += 1;
+            roundNumber++;
             return "You win! Paper beats rock";
         } 
         else {
+            computerScore += 1;
+            roundNumber++;
             return "You lose! Rock beats scissors";
         }
     }
    
     else if (compChoice === "paper"){
         if (playChoice === "rock"){
+            computerScore += 1;
+            roundNumber++;
             return "You lose! Paper beats rock";
         } 
         else {
+            playerScore += 1;
+            roundNumber++;
             return "You win! Scissors beats paper";
         }
     }
    
     else if (compChoice === "scissors"){
         if (playChoice === "rock"){
+            playerScore += 1;
+            roundNumber++;
             return "You win! Rock beats scissors";
         } 
         else {
+            computerScore += 1;
+            roundNumber++;
             return "You lose! Scissors beats paper";
         }
+    }
+}
+
+function gameEnd(){
+    if (roundNumber === 6){
+        if (computerScore > playerScore){
+            return "Game over! The computer wins!";
+        }
+        else if (computerScore < playerScore){
+            return "You win the game!";
+        }
+        else {
+            return "Hmmm it's a draw...game over";
+        }
+    }
+    else {
+        return `Get ready for round ${roundNumber}`;
     }
 }
 
 const body = document.querySelector('.results');
 const buttons = document.querySelectorAll('button');
 const result = document.createElement('div');
-buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-        result.textContent = `${playRound(button.textContent.toLowerCase())}`
-        body.appendChild(result);
-    })
-});
+const score = document.createElement('div');
+const round = document.createElement('div');
+const gameOverText = document.createElement('div');
+const computersPlay = document.createElement('div');
+
+round.textContent = `Round number : ${roundNumber} Let the game begin!`
+body.appendChild(round);
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+
+            if (roundNumber >= 6){
+                round.textContent = "Round number : 5";
+            }
+            else {
+                round.textContent = `Round number : ${roundNumber}`;
+            }
+
+            result.textContent = `${playRound(button.textContent.toLowerCase())}`;
+            computersPlay.textContent = `The computer chooses ${computersPlayvariable}!`;
+            body.appendChild(computersPlay);
+            body.appendChild(result);
+
+            score.textContent = `Your Score: ${playerScore} Computer's Score: ${computerScore}`;
+            body.appendChild(score);
+
+            gameOverText.textContent = `${gameEnd()}`;
+            body.appendChild(gameOverText);
+        });
+    });
+
 
 
 
