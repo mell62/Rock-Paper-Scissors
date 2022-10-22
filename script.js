@@ -17,7 +17,7 @@ function playRound(playChoice){
     let compChoice = getComputerChoice();
 
     if (roundNumber > 5){
-        return `Game is over!`;
+        return `Game is over! Reload the page to start another game!`;
     }
 
     computersPlayvariable = compChoice;
@@ -80,7 +80,7 @@ function gameEnd(){
             return "You win the game!";
         }
         else {
-            return "Hmmm it's a draw...game over";
+            return "Hmmm it's a draw...game over.";
         }
     }
     else {
@@ -88,37 +88,38 @@ function gameEnd(){
     }
 }
 
-const roundNumberInfo = document.querySelector('.round-number');
-const body = document.querySelector('.results');
-const buttons = document.querySelectorAll('button');
-const result = document.createElement('div');
+const body = document.querySelector('body');
+const roundNumberInfo = document.createElement('div');
+const resultBody = document.querySelector('.results');
+const roundResult = document.createElement('div');
 const score = document.createElement('div');
-const round = document.createElement('div');
 const gameOverText = document.createElement('div');
 const computersPlay = document.createElement('div');
+const buttons = document.querySelectorAll('button');
+const buttonContainer = document.querySelector('.button-container');
 
-round.textContent = `Round number : ${roundNumber} Let the game begin!`
-roundNumberInfo.appendChild(round);
+roundNumberInfo.textContent = `Round number : ${roundNumber} Let the game begin!`
+body.insertBefore(roundNumberInfo,buttonContainer);
     buttons.forEach((button) => {
         button.addEventListener("click", () => {
 
             if (roundNumber >= 6){
-                round.textContent = "Round number : 5";
+                roundNumberInfo.textContent = "Round number : 5";
             }
             else {
-                round.textContent = `Round number : ${roundNumber}`;
+                roundNumberInfo.textContent = `Round number : ${roundNumber}`;
             }
 
-            result.textContent = `${playRound(button.textContent.toLowerCase())}`;
+            roundResult.textContent = `${playRound(button.textContent.toLowerCase())}`;
             computersPlay.textContent = `The computer chooses ${computersPlayvariable}!`;
-            body.appendChild(computersPlay);
-            body.appendChild(result);
+            resultBody.appendChild(computersPlay);
+            resultBody.appendChild(roundResult);
 
             score.textContent = `Your Score: ${playerScore} Computer's Score: ${computerScore}`;
-            body.appendChild(score);
+            resultBody.appendChild(score);
 
             gameOverText.textContent = `${gameEnd()}`;
-            body.appendChild(gameOverText);
+            resultBody.appendChild(gameOverText);
         });
     });
 
