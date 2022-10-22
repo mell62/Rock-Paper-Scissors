@@ -1,4 +1,29 @@
+.heading {
+    font-family: "Ubuntu", sans;
+    text-align: center;
+    padding: 30px;
+    font-size: 30px;
+}
+
 .roundnumber-info {
     text-align: center;
-    padding: 20px;
+    padding: 40px 0px 20px;
+    font-family: "Cairo", sans;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 50px;
+}
+
+button {
+    border-radius: 8px;
+    padding: 50px 80px;
+    font-size: 20px;
+}
+
+.results {
+    padding-top: 40px;
+    font-size: 20px;
 }
