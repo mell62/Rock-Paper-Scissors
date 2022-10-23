@@ -19,7 +19,7 @@ function playRound(playChoice){
         return "The game is over! Reload the page to play again!";
     }
 
-    computersPlayvariable = compChoice;
+    computersPlayvariable = compChoice.charAt(0).toUpperCase() + compChoice.slice(1);
 
     if (compChoice === playChoice){
         return "It's a tie!";
@@ -73,6 +73,40 @@ function gameEnd(){
     }
 }
 
+function removePlayerimage(){
+    if(playerFlag){
+        if (playerImginfo==="rock"){
+            divPlayer.removeChild(playerRockimg);
+            playerFlag = false;
+        }
+        else if (playerImginfo==="paper"){
+            divPlayer.removeChild(playerPaperimg);
+            playerFlag = false;
+        }
+        else if(playerImginfo==="scissors"){
+            divPlayer.removeChild(playerScissorsimg);
+            playerFlag = false;
+        }
+    }
+}
+
+function removeComputerimage(){
+    if(computerFlag){
+        if (computerImginfo==="rock"){
+            divComputer.removeChild(computerRockimg);
+            computerFlag = false;
+        }
+        else if (computerImginfo==="paper"){
+            divComputer.removeChild(computerPaperimg);
+            computerFlag = false;
+        }
+        else if(computerImginfo==="scissors"){
+            divComputer.removeChild(computerScissorsimg);
+            computerFlag = false;
+        }
+    }
+}
+
 const body = document.querySelector('body');
 const resultBody = document.querySelector('.results');
 const yourScore = document.querySelector('.your-score');
@@ -81,6 +115,27 @@ const gameOverText = document.querySelector('.game-over-text');
 const gameInformationPlayer = document.querySelector('.game-information-player');
 const gameInformationComputer = document.querySelector('.game-information-computer');
 const buttons = document.querySelectorAll('button');
+const playerPlayfield = document.querySelector('.player-choice');
+const computerPlayField = document.querySelector('.computer-choice');
+const playerImages = document.querySelector('.player-images');
+const playerRockimg = document.querySelector('.player-rock-img');
+const playerPaperimg = document.querySelector('.player-paper-img');
+const playerScissorsimg = document.querySelector('.player-scissors-img');
+const computerImages = document.querySelector('.computer-images');
+const computerRockimg = document.querySelector('.computer-rock-img');
+const computerPaperimg = document.querySelector('.computer-paper-img');
+const computerScissorsimg = document.querySelector('.computer-scissors-img');
+const divPlayer = document.createElement('div');
+const divComputer = document.createElement('div');
+let playerFlag = false;
+let computerFlag = false;
+let playerImginfo;
+let computerImginfo;
+
+playerPlayfield.removeChild(playerImages);
+computerPlayField.removeChild(computerImages);
+playerPlayfield.insertBefore(divPlayer,gameInformationPlayer);
+computerPlayField.insertBefore(divComputer,gameInformationComputer);
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -89,9 +144,10 @@ buttons.forEach((button) => {
 
         if (!gameEnd()){
             gameInformationPlayer.textContent = `You chose ${button.textContent}!`;
+            gameInformationComputer.textContent = `The computer chooses ${computersPlayvariable}!`;
         }
 
-        gameInformationComputer.textContent = `The computer chooses ${computersPlayvariable}!`;
+       
         
         yourScore.textContent = `Your Score: ${playerScore}`;
         computersScore.textContent =  `Computer's Score: ${computerScore}`;
@@ -101,6 +157,71 @@ buttons.forEach((button) => {
         }
 
     });
+
+    button.addEventListener("click", removePlayerimage);
+    button.addEventListener("click", removeComputerimage);
+
+    button.addEventListener("click", () => {
+        if (computerScore === 5 || playerScore === 5){
+            if (playerImginfo==="rock"){
+                divPlayer.appendChild(playerRockimg);
+            }
+            else if (playerImginfo==="paper"){
+                divPlayer.appendChild(playerPaperimg);
+            }
+            else if(playerImginfo==="scissors"){
+                divPlayer.appendChild(playerScissorsimg);
+            }
+        }
+        else if(button.textContent === "Rock"){
+            divPlayer.appendChild(playerRockimg);
+            playerImginfo = "rock";
+            playerFlag = true;
+        }
+        else if(button.textContent === "Paper"){
+            divPlayer.appendChild(playerPaperimg);
+            playerImginfo = "paper";
+            playerFlag = true;
+        }
+        else if(button.textContent === "Scissors") {
+            divPlayer.appendChild(playerScissorsimg);
+            playerImginfo = "scissors";
+            playerFlag = true;
+        } 
+        
+    });
+
+    button.addEventListener("click", () => {
+        if (computerScore === 5 || playerScore === 5){
+            if (computerImginfo==="rock"){
+                divComputer.appendChild(computerRockimg);
+            }
+            else if (computerImginfo==="paper"){
+                divComputer.appendChild(computerPaperimg);
+            }
+            else if(computerImginfo==="scissors"){
+                divComputer.appendChild(computerScissorsimg);
+            }
+        }
+        else if(computersPlayvariable === "Rock"){
+            divComputer.appendChild(computerRockimg);
+            computerImginfo = "rock";
+            computerFlag = true;
+        }
+        else if(computersPlayvariable === "Paper"){
+            divComputer.appendChild(computerPaperimg);
+            computerImginfo = "paper";
+            computerFlag = true;
+        }
+        else if(computersPlayvariable === "Scissors") {
+            divComputer.appendChild(computerScissorsimg);
+            computerImginfo = "scissors";
+            computerFlag = true;
+        } 
+        
+    });
+
+
 });
 
 
