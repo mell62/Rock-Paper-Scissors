@@ -16,7 +16,7 @@ function playRound(playChoice){
     let compChoice = getComputerChoice();
 
     if (playerScore === 5 || computerScore ===5){
-        return "The game is over!";
+        return "The game is over! Reload the page to play again!";
     }
 
     computersPlayvariable = compChoice;
@@ -67,6 +67,7 @@ function gameEnd(){
     if (playerScore === 5){
        return "You win the game!"
     }
+
     else if (computerScore === 5){
         return "You lose the game"
     }
@@ -74,26 +75,31 @@ function gameEnd(){
 
 const body = document.querySelector('body');
 const resultBody = document.querySelector('.results');
-const roundResult = document.createElement('div');
-const score = document.createElement('div');
-const gameOverText = document.createElement('div');
-const computersPlay = document.createElement('div');
+const yourScore = document.querySelector('.your-score');
+const computersScore = document.querySelector('.computer-score');
+const gameOverText = document.querySelector('.game-over-text');
+const gameInformationPlayer = document.querySelector('.game-information-player');
+const gameInformationComputer = document.querySelector('.game-information-computer');
 const buttons = document.querySelectorAll('button');
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
-        roundResult.textContent = `${playRound(button.textContent.toLowerCase())}`;
-        computersPlay.textContent = `The computer chooses ${computersPlayvariable}!`;
-        resultBody.appendChild(computersPlay);
-        resultBody.appendChild(roundResult);
 
-        score.textContent = `Your Score: ${playerScore} Computer's Score: ${computerScore}`;
-        resultBody.appendChild(score);
+        resultBody.textContent = `${playRound(button.textContent.toLowerCase())}`;
 
-        gameOverText.textContent = `${gameEnd()}`;
-        if (playerScore === 5 || computerScore ===5){
-            resultBody.appendChild(gameOverText);
+        if (!gameEnd()){
+            gameInformationPlayer.textContent = `You chose ${button.textContent}!`;
         }
+
+        gameInformationComputer.textContent = `The computer chooses ${computersPlayvariable}!`;
+        
+        yourScore.textContent = `Your Score: ${playerScore}`;
+        computersScore.textContent =  `Computer's Score: ${computerScore}`;
+
+        if (gameEnd()){
+            gameOverText.textContent = `${gameEnd()}`;
+        }
+
     });
 });
 

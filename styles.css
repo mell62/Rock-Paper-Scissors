@@ -1,14 +1,26 @@
 .heading {
-    font-family: "Ubuntu", sans;
+    font-family: "Amatic SC", sans-serif;
     text-align: center;
     padding: 30px;
-    font-size: 30px;
+    font-size: 70px;
 }
 
-.roundnumber-info {
+.info {
     text-align: center;
-    padding: 40px 0px 20px;
-    font-family: "Cairo", sans;
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 30px;
+    padding-bottom: 30px;
+}
+
+.play-field {
+    display: flex;
+    justify-content: space-around;
+}
+
+.player-choice, 
+.computer-choice {
+    border: solid black;
+    text-align: center;
 }
 
 .button-container {
@@ -21,9 +33,16 @@ button {
     border-radius: 8px;
     padding: 50px 80px;
     font-size: 20px;
+    font-family: "Permanent Marker", sans-serif;
 }
 
 .results {
     padding-top: 40px;
     font-size: 20px;
+    text-align: center;
+}
+
+.game-over-text {
+    text-align: center;
+    padding-top: 80px;
 }
