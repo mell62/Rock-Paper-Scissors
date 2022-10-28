@@ -7,15 +7,17 @@
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Ubuntu|Cairo|Permanent Marker|Chakra Petch|Acme|Amatic SC"
+      href="https://fonts.googleapis.com/css?family=Permanent Marker|Chakra Petch|Amatic SC|Stick No Bills|Dosis|Fuzzy Bubbles"
     />
   </head>
   <body>
-    <div class="heading">ROCK PAPER SCISSORS</div>
+    <div class="heading">
+      <div class="heading-text">ROCK PAPER SCISSORS</div>
+    </div>
     <div class="info">First to score 5 points win!</div>
     <div class="play-field">
       <span class="player-choice"
-        >YOU
+        ><div class="player-choice-heading">YOU</div>
         <div class="player-images">
           <img class="player-rock-img" src="images/rock.png" /><img
             class="player-paper-img"
@@ -27,9 +29,12 @@
         </div>
         <div class="your-score">Your Score: -</div></span
       >
-      <span class="versus-text">VS</span>
+      <div class="versus-and-results">
+        <div class="versus-text">VS</div>
+        <div class="results"></div>
+      </div>
       <span class="computer-choice"
-        >COMPUTER
+        ><div class="player-choice-heading">COMPUTER</div>
         <div class="computer-images">
           <img class="computer-rock-img" src="images/rock.png" /><img
             class="computer-paper-img"
@@ -42,12 +47,13 @@
         <div class="computer-score">Computer's Score: -</div></span
       >
     </div>
-    <div class="results"></div>
+
     <div class="button-container">
       <button class="rock">Rock</button>
       <button class="paper">Paper</button>
       <button class="scissors">Scissors</button>
     </div>
     <div class="game-over-text"></div>
+    <div class="footer">my art bad</div>
   </body>
 </html>

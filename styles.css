@@ -1,8 +1,20 @@
-.heading {
+body{
+    background-color: #CAFAFE;
+}
+
+.heading{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.heading-text {
     font-family: "Amatic SC", sans-serif;
-    text-align: center;
     padding: 30px;
     font-size: 70px;
+    border: dotted black;
+    border-radius: 50px;
+    width: fit-content;
 }
 
 .info {
@@ -17,16 +29,43 @@
     justify-content: space-around;
 }
 
+span {
+    font-family: "Stick No Bills", sans-serif;
+    font-size: 28px;
+}
+
+.player-choice-heading,
+.computer-choice-heading {
+    font-weight: bold;
+}
+
 .player-choice, 
 .computer-choice {
     border: solid black;
     text-align: center;
-    width:230px;
-    height: 250px;
+    width:230px;   
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 img{
     height: 190px;
+}
+
+.versus-text {
+    padding-top: 100px;
+    font-family: "Permanent Marker", sans-serif;
+    font-size: 50px;
+}
+
+.versus-and-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 100px;
+    width: 380px;
 }
 
 .button-container {
@@ -36,19 +75,29 @@ img{
 }
 
 button {
-    border-radius: 8px;
+    border-radius: 100px;
     padding: 50px 80px;
-    font-size: 20px;
+    font-size: 30px;
     font-family: "Permanent Marker", sans-serif;
+    background-color: #97CAEF;
 }
 
 .results {
-    padding-top: 40px;
-    font-size: 20px;
+    font-size: 26px;
     text-align: center;
+    font-family: "Chakra Petch", sans-serif;
 }
 
 .game-over-text {
     text-align: center;
-    padding-top: 80px;
+    padding-top: 40px;
+    font-family: "Dosis", sans-serif;
+    font-size: 28px;
+}
+
+.footer {
+    display: flex;
+    justify-content: end;
+    margin-top: 80px;
+    font-family: "Fuzzy Bubbles", serif;
 }
