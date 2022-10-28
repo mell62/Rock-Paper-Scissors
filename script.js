@@ -65,11 +65,11 @@ function playRound(playChoice){
 
 function gameEnd(){
     if (playerScore === 5){
-       return "YOU WIN THE GAME!"
+       return "YOU WIN THE GAME!";
     }
 
     else if (computerScore === 5){
-        return "YOU LOSE THE GAME"
+        return "YOU LOSE THE GAME";
     }
 }
 
