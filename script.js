@@ -107,6 +107,7 @@ function removeComputerimage(){
     }
 }
 
+
 const body = document.querySelector('body');
 const resultBody = document.querySelector('.results');
 const yourScore = document.querySelector('.your-score');
@@ -129,8 +130,10 @@ const divPlayer = document.createElement('div');
 const divComputer = document.createElement('div');
 let playerFlag = false;
 let computerFlag = false;
+let imageFlag = 1;
 let playerImginfo;
 let computerImginfo;
+let endimagePlayer;
 
 playerPlayfield.removeChild(playerImages);
 computerPlayField.removeChild(computerImages);
@@ -160,50 +163,48 @@ buttons.forEach((button) => {
 
     button.addEventListener("click", removePlayerimage);
     button.addEventListener("click", removeComputerimage);
-
     button.addEventListener("click", () => {
-        if (computerScore === 5 || playerScore === 5){
-            if (playerImginfo==="rock"){
+        if (endimagePlayer){
+            if (endimagePlayer === "rock"){
                 divPlayer.appendChild(playerRockimg);
-            }
-            else if (playerImginfo==="paper"){
+            } 
+            else if(endimagePlayer === "paper"){
                 divPlayer.appendChild(playerPaperimg);
             }
-            else if(playerImginfo==="scissors"){
+            else if(endimagePlayer === "scissors"){
                 divPlayer.appendChild(playerScissorsimg);
             }
         }
+
         else if(button.textContent === "Rock"){
             divPlayer.appendChild(playerRockimg);
             playerImginfo = "rock";
             playerFlag = true;
+            if(playerScore===5 || computerScore===5){
+                endimagePlayer = playerImginfo;
+            }
         }
         else if(button.textContent === "Paper"){
             divPlayer.appendChild(playerPaperimg);
             playerImginfo = "paper";
             playerFlag = true;
+            if(playerScore===5 || computerScore===5){
+                endimagePlayer = playerImginfo;
+            }
         }
         else if(button.textContent === "Scissors") {
             divPlayer.appendChild(playerScissorsimg);
             playerImginfo = "scissors";
             playerFlag = true;
+            if(playerScore===5 || computerScore===5){
+                endimagePlayer = playerImginfo;
+            }
         } 
         
     });
 
     button.addEventListener("click", () => {
-        if (computerScore === 5 || playerScore === 5){
-            if (computerImginfo==="rock"){
-                divComputer.appendChild(computerRockimg);
-            }
-            else if (computerImginfo==="paper"){
-                divComputer.appendChild(computerPaperimg);
-            }
-            else if(computerImginfo==="scissors"){
-                divComputer.appendChild(computerScissorsimg);
-            }
-        }
-        else if(computersPlayvariable === "Rock"){
+        if(computersPlayvariable === "Rock"){
             divComputer.appendChild(computerRockimg);
             computerImginfo = "rock";
             computerFlag = true;
