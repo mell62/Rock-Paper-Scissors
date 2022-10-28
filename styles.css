@@ -21,6 +21,12 @@
 .computer-choice {
     border: solid black;
     text-align: center;
+    width:230px;
+    height: 250px;
+}
+
+img{
+    height: 190px;
 }
 
 .button-container {
