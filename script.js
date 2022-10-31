@@ -117,7 +117,7 @@ const gameInformationPlayer = document.querySelector('.game-information-player')
 const gameInformationComputer = document.querySelector('.game-information-computer');
 const buttons = document.querySelectorAll('button');
 const playerPlayfield = document.querySelector('.player-choice');
-const computerPlayField = document.querySelector('.computer-choice');
+const computerPlayfield = document.querySelector('.computer-choice');
 const playerImages = document.querySelector('.player-images');
 const playerRockimg = document.querySelector('.player-rock-img');
 const playerPaperimg = document.querySelector('.player-paper-img');
@@ -136,9 +136,38 @@ let computerImginfo;
 let endimagePlayer;
 
 playerPlayfield.removeChild(playerImages);
-computerPlayField.removeChild(computerImages);
+computerPlayfield.removeChild(computerImages);
 playerPlayfield.insertBefore(divPlayer,gameInformationPlayer);
-computerPlayField.insertBefore(divComputer,gameInformationComputer);
+computerPlayfield.insertBefore(divComputer,gameInformationComputer);
+
+playerPlayfield.addEventListener("mouseover", () => {
+    playerPlayfield.classList.add('play-field-effect');
+});
+
+playerPlayfield.addEventListener("mouseleave", () => {
+    playerPlayfield.classList.remove('play-field-effect');
+    playerPlayfield.style.transitionDuration = '300ms';
+});
+
+computerPlayfield.addEventListener("mouseover", () => {
+    computerPlayfield.classList.add('play-field-effect');
+});
+
+computerPlayfield.addEventListener("mouseleave", () => {
+    computerPlayfield.classList.remove('play-field-effect');
+    computerPlayfield.style.transitionDuration = '300ms';
+});
+
+
+buttons.forEach((button) => {
+    button.addEventListener("mouseover", () => {
+        button.style.backgroundColor = '#5fced8';
+    });
+
+    button.addEventListener("mouseleave", () => {
+        button.removeAttribute('style');
+    });
+});
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
