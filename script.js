@@ -157,6 +157,8 @@ buttons.forEach((button) => {
 
         if (gameEnd()){
             gameOverText.textContent = `${gameEnd()}`;
+            gameInformationPlayer.textContent = `You chose ${button.textContent}!`;
+            gameInformationComputer.textContent = `The computer chooses ${computersPlayvariable}!`;
         }
 
     });
@@ -167,12 +169,15 @@ buttons.forEach((button) => {
         if (endimagePlayer){
             if (endimagePlayer === "rock"){
                 divPlayer.appendChild(playerRockimg);
+                gameInformationPlayer.textContent = `You chose Rock!`;
             } 
             else if(endimagePlayer === "paper"){
                 divPlayer.appendChild(playerPaperimg);
+                gameInformationPlayer.textContent = `You chose Paper!`;
             }
             else if(endimagePlayer === "scissors"){
                 divPlayer.appendChild(playerScissorsimg);
+                gameInformationPlayer.textContent = `You chose Scissors!`;
             }
         }
 
