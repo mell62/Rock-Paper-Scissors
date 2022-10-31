@@ -29,13 +29,12 @@ body{
     justify-content: space-around;
 }
 
-span {
-    font-family: "Stick No Bills", sans-serif;
-    font-size: 28px;
-}
+
 
 .player-choice-heading,
 .computer-choice-heading {
+    font-family: "Stick No Bills", sans-serif;
+    font-size: 28px;
     font-weight: bold;
 }
 
@@ -43,8 +42,8 @@ span {
 .computer-choice {
     border: solid black;
     text-align: center;
-    width:230px;   
-    height: 350px;
+    width:290px;   
+    height: 370px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -52,6 +51,18 @@ span {
 
 img{
     height: 190px;
+}
+
+.game-information-player,
+.game-information-computer{
+    font-family: "Stick No Bills", sans-serif;
+    font-size: 24px;
+}
+
+.your-score,
+.computer-score{
+    font-family: "Stick No Bills", sans-serif;
+    font-size: 28px;
 }
 
 .versus-text {
@@ -93,11 +104,13 @@ button {
     padding-top: 40px;
     font-family: "Dosis", sans-serif;
     font-size: 28px;
+    font-weight: bold;
 }
 
 .footer {
     display: flex;
-    justify-content: end;
+    justify-content: center;
+    background-color:#70b3e4;
     margin-top: 80px;
     font-family: "Fuzzy Bubbles", serif;
 }
